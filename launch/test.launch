@@ -1,0 +1,5 @@
+<launch>
+  <node pkg="ros_workshop" type="example7.py" name="test" output="screen">
+    <param name="param" value="1"/>
+  </node>
+</launch>

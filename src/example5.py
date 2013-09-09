@@ -19,20 +19,24 @@
 import roslib; roslib.load_manifest("ros_workshop")
 import rospy
 
-#importing messages: from package_name.msg import MsgName
-from std_msgs.msg import Float64
+#importing service
+from ros_workshop.srv import Test
 
-#initialises the node (registers with master)
-rospy.init_node("test1")
+class Service(object):
+    """
+    """
 
-#advertises a topic
-pub = rospy.Publisher("/test", Float64)
+    def __init__(self, ):
+        """
+        """
+        self.service_server = rospy.Service("~service", Test, self.service_cb_)
 
-#publishing at fixed rate
-rate = rospy.Rate(10)
+    def service_cb_(self, request):
+        print "Received a request: ", request.input
+        request.output = "Lapin"
+        return True
 
-#Check if ROS is killed
-while not rospy.is_shutdown():
-    #actually publish the message
-    pub.publish(1.0)
-    rate.sleep()
+
+rospy.init_node("test5")
+service = Service()
+rospy.spin()

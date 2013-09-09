@@ -19,20 +19,8 @@
 import roslib; roslib.load_manifest("ros_workshop")
 import rospy
 
-#importing messages: from package_name.msg import MsgName
-from std_msgs.msg import Float64
+rospy.init_node("test7")
 
-#initialises the node (registers with master)
-rospy.init_node("test1")
+test_param = rospy.get_param("~param", 100) #default value
 
-#advertises a topic
-pub = rospy.Publisher("/test", Float64)
-
-#publishing at fixed rate
-rate = rospy.Rate(10)
-
-#Check if ROS is killed
-while not rospy.is_shutdown():
-    #actually publish the message
-    pub.publish(1.0)
-    rate.sleep()
+rospy.loginfo("Test param = "+str(test_param))

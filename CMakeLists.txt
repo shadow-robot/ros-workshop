@@ -50,7 +50,7 @@ add_service_files(
 catkin_package(
 #  INCLUDE_DIRS include
 #  LIBRARIES ros_workshop
-#  CATKIN_DEPENDS rospy sensor_msgs sr_common_msgs std_msgs
+  CATKIN_DEPENDS rospy sensor_msgs std_msgs message_runtime
 #  DEPENDS system_lib
 )
 

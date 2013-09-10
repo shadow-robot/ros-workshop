@@ -1,3 +1,11 @@
+* creating the workspace:
+ - mkdir -p ~/catkin/src
+ - cd ~/catkin/src
+ - catkin_init_workspace
+ - cd ~/catkin
+ - catkin_make
+ - source devel/setup.bash
+
 * Creating the package:
 - catkin_create_pkg ros_workshop rospy std_msgs sensor_msgs
 - put python files in src

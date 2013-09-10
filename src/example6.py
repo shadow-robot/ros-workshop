@@ -40,5 +40,5 @@ class Service(object):
 
 rospy.init_node("test6")
 service = Service()
-user_msg = raw_input()
+user_msg = raw_input("Enter some text to send to the service server:  ")
 service.call_srv(user_msg)

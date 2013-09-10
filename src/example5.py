@@ -20,7 +20,7 @@ import roslib; roslib.load_manifest("ros_workshop")
 import rospy
 
 #importing service
-from ros_workshop.srv import Test
+from ros_workshop.srv import Test, TestResponse
 
 class Service(object):
     """
@@ -33,8 +33,9 @@ class Service(object):
 
     def service_cb_(self, request):
         print "Received a request: ", request.input
-        request.output = "Lapin"
-        return True
+        response = TestResponse()
+        response.output = request.input + " " + request.input
+        return response
 
 
 rospy.init_node("test5")
